@@ -219,6 +219,7 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\dashboard.css" />
+    <Content Include="Content\form-validation.css" />
     <Content Include="Content\login.css" />
     <Content Include="Content\signin.css" />
     <Content Include="dist\bootstrap.min.js" />
@@ -313,6 +314,8 @@
     <Content Include="Views\Logins\Details.cshtml" />
     <Content Include="Views\Logins\Edit.cshtml" />
     <Content Include="Views\Logins\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutCadastro.cshtml" />
+    <Content Include="Views\Home\Cadastro.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

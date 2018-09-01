@@ -59,5 +59,11 @@ namespace ProjetoSocial.Controllers
                 return View(new Login());
             }
         }
+
+        public ActionResult Cadastro()
+        {
+            ViewBag.Message = "Cadastro de usuários.";
+            return View();
+        }
     }
 }

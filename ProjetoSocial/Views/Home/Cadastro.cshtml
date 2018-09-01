@@ -1,0 +1,61 @@
+﻿@model ProjetoSocial.Models.Login
+
+@{
+    ViewBag.Title = "Cadastro";
+    Layout = "~/Views/Shared/_LayoutCadastro.cshtml";
+}
+
+<div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="../../assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h2>Formulário de cadastro</h2>
+    <p class="lead">Conclua seu cadastro para poder ver todos animais disponíveis para adoção.</p>
+</div>
+
+<div class="row">
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="col-md-12 order-md-1">
+        <h4 class="mb-3">Preencha todos os campos</h4>
+        <form class="needs-validation" novalidate>
+            <div class="mb-3">
+                <label for="username">Usuário</label>
+                <div class="input-group">
+                    @Html.EditorFor(model => model.Usuario, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Usuario, "", new { @class = "text-danger" })
+                    <div class="invalid-feedback" style="width: 100%;">
+                        Your username is required.
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                <label for="email">Senha </label>
+                @Html.EditorFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Senha, "", new { @class = "text-danger", type = "password" })
+                <div class="invalid-feedback">
+                    Please enter a valid email address for shipping updates.
+                </div>
+            </div>
+            <hr class="mb-4">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="same-address">
+                <label class="custom-control-label" for="same-address">Estou ciente do cadastro no site</label>
+            </div>
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="save-info">
+                <label class="custom-control-label" for="save-info">Aceito os termos do site</label>
+            </div>
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Salvar</button>
+        </form>
+    </div>
+</div>
+
+<footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2018 SGA</p>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="#">Privacidade</a></li>
+        <li class="list-inline-item"><a href="#">Termos</a></li>
+        <li class="list-inline-item"><a href="#">Suporte</a></li>
+    </ul>
+</footer>
