@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 using ProjetoSocial.Models;
 using ProjetoSocial.Repository.Login;
 
@@ -45,13 +46,16 @@ namespace ProjetoSocial.Controllers
 
             if (vLogin != null)
             {
+                FormsAuthentication.SetAuthCookie(vLogin.Usuario, false);
                 Session["Nome"] = vLogin.Usuario;
                 Session["Status"] = vLogin.Status;
                 return RedirectToAction("Index", "PainelAdministrativo");
             }
             else
             {
-                ModelState.AddModelError("", "Usuário/Senha inválidos.");
+                ModelState.Clear();
+                ViewData["MensagemLogin"] = "Usuário / Senha inválidos";
+                //ModelState.AddModelError("", "Usuário/Senha inválidos.");
                 return View(new Login());
             }
         }

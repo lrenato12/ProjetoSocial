@@ -10,6 +10,7 @@ using ProjetoSocial.Models;
 
 namespace ProjetoSocial.Controllers
 {
+    [Authorize]
     public class EnderecosController : Controller
     {
         private ProjetoSocialEntities db = new ProjetoSocialEntities();

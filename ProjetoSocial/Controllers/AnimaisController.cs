@@ -10,6 +10,7 @@ using ProjetoSocial.Models;
 
 namespace ProjetoSocial.Controllers
 {
+    [Authorize]
     public class AnimaisController : Controller
     {
         private ProjetoSocialEntities db = new ProjetoSocialEntities();
@@ -127,6 +128,14 @@ namespace ProjetoSocial.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private bool IsLogged()
+        {
+            if (Session["Nome"] != null && Session["Status"] != null)
+                return true;
+
+            return false;
         }
     }
 }

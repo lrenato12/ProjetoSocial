@@ -10,6 +10,7 @@ using ProjetoSocial.Models;
 
 namespace ProjetoSocial.Controllers
 {
+    [Authorize]
     public class VacinacoesController : Controller
     {
         private ProjetoSocialEntities db = new ProjetoSocialEntities();

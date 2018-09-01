@@ -195,6 +195,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ProjetoSocialModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Role.cs" />
     <Compile Include="Models\Vacinacao.cs">
       <DependentUpon>ProjetoSocialModel.tt</DependentUpon>
     </Compile>
