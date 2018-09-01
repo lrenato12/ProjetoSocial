@@ -39,6 +39,5 @@ C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocia
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.Web.WebPages.Razor.xml
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\Antlr3.Runtime.pdb
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\Newtonsoft.Json.xml
-C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\obj\Debug\ProjetoSocial.csprojResolveAssemblyReference.cache
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\obj\Debug\ProjetoSocial.dll
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\obj\Debug\ProjetoSocial.pdb

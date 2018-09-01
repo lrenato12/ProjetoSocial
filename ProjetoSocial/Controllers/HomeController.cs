@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ProjetoSocial.Models;
+using ProjetoSocial.Repository.Login;
 
 namespace ProjetoSocial.Controllers
 {
@@ -32,6 +34,26 @@ namespace ProjetoSocial.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult Login(string usuario, string senha)
+        {
+            ProjetoSocialEntities objempcontext = new ProjetoSocialEntities();
+            LoginRepository log = new LoginRepository(objempcontext);
+            var vLogin = log.GetLoginByUserPass(usuario, senha);
+
+            if (vLogin != null)
+            {
+                Session["Nome"] = vLogin.Usuario;
+                Session["Status"] = vLogin.Status;
+                return RedirectToAction("Index", "PainelAdministrativo");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Usuário/Senha inválidos.");
+                return View(new Login());
+            }
         }
     }
 }
