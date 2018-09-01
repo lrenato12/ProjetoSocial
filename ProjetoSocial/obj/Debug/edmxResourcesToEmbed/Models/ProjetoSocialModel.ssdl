@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="lrenato1210Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Especie" Type="varchar" MaxLength="150" />
+    <Property Name="Nome" Type="varchar" MaxLength="150" />
+    <Property Name="Peso" Type="varchar" MaxLength="150" />
+    <Property Name="Cor" Type="varchar" MaxLength="150" />
+    <Property Name="Idade" Type="varchar" MaxLength="150" />
+    <Property Name="DataInclusao" Type="datetime" />
+    <Property Name="DataAdocao" Type="datetime" />
+    <Property Name="DescricaoLocalEncontrado" Type="varchar(max)" />
+    <Property Name="Status" Type="int" />
+    <Property Name="Informacoes" Type="varchar(max)" />
+    <Property Name="Vacinas" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Contato">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Telefone" Type="varchar" MaxLength="250" />
+    <Property Name="Celular" Type="varchar" MaxLength="250" />
+    <Property Name="Email" Type="varchar" MaxLength="250" />
+    <Property Name="Informacoes" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Endereco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Logradouro" Type="varchar" MaxLength="250" />
+    <Property Name="Numero" Type="varchar" MaxLength="250" />
+    <Property Name="Bairro" Type="varchar" MaxLength="250" />
+    <Property Name="Complemento" Type="varchar" MaxLength="250" />
+    <Property Name="Cep" Type="varchar" MaxLength="8" />
+    <Property Name="Municipio" Type="varchar" MaxLength="250" />
+    <Property Name="Uf" Type="varchar" MaxLength="2" />
+    <Property Name="Informacoes" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Usuario" Type="varchar" MaxLength="250" />
+    <Property Name="Senha" Type="varchar" MaxLength="50" />
+    <Property Name="Status" Type="varchar" MaxLength="50" />
+    <Property Name="Informacoes" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="150" />
+    <Property Name="DataInclusao" Type="datetime" />
+    <Property Name="Informacoes" Type="varchar(max)" />
+    <Property Name="Endereco" Type="varchar" MaxLength="250" />
+    <Property Name="Contato" Type="varchar" MaxLength="250" />
+    <Property Name="Login" Type="varchar" MaxLength="250" />
+    <Property Name="AnimaisAdotados" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Vacinacao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="250" />
+    <Property Name="Data" Type="datetime" />
+    <Property Name="Informacoes" Type="varchar(max)" />
+  </EntityType>
+  <Association Name="FK__Animal__Vacinas__34C8D9D1">
+    <End Role="Vacinacao" Type="Self.Vacinacao" Multiplicity="0..1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacinacao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Vacinas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pessoa__AnimaisA__3A81B327">
+    <End Role="Animal" Type="Self.Animal" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="AnimaisAdotados" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pessoa__Contato__38996AB5">
+    <End Role="Contato" Type="Self.Contato" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="Contato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pessoa__Endereco__37A5467C">
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endereco">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="Endereco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pessoa__Login__398D8EEE">
+    <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="Login" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="lrenato1210ModelStoreContainer">
+    <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contato" EntityType="Self.Contato" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Endereco" EntityType="Self.Endereco" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pessoa" EntityType="Self.Pessoa" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vacinacao" EntityType="Self.Vacinacao" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Animal__Vacinas__34C8D9D1" Association="Self.FK__Animal__Vacinas__34C8D9D1">
+      <End Role="Vacinacao" EntitySet="Vacinacao" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pessoa__AnimaisA__3A81B327" Association="Self.FK__Pessoa__AnimaisA__3A81B327">
+      <End Role="Animal" EntitySet="Animal" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pessoa__Contato__38996AB5" Association="Self.FK__Pessoa__Contato__38996AB5">
+      <End Role="Contato" EntitySet="Contato" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pessoa__Endereco__37A5467C" Association="Self.FK__Pessoa__Endereco__37A5467C">
+      <End Role="Endereco" EntitySet="Endereco" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pessoa__Login__398D8EEE" Association="Self.FK__Pessoa__Login__398D8EEE">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

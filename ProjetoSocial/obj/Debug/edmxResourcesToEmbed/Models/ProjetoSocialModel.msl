@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="lrenato1210ModelStoreContainer" CdmEntityContainer="ProjetoSocialEntities">
+    <EntitySetMapping Name="Animal">
+      <EntityTypeMapping TypeName="lrenato1210Model.Animal">
+        <MappingFragment StoreEntitySet="Animal">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Especie" ColumnName="Especie" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Peso" ColumnName="Peso" />
+          <ScalarProperty Name="Cor" ColumnName="Cor" />
+          <ScalarProperty Name="Idade" ColumnName="Idade" />
+          <ScalarProperty Name="DataInclusao" ColumnName="DataInclusao" />
+          <ScalarProperty Name="DataAdocao" ColumnName="DataAdocao" />
+          <ScalarProperty Name="DescricaoLocalEncontrado" ColumnName="DescricaoLocalEncontrado" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
+          <ScalarProperty Name="Vacinas" ColumnName="Vacinas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Contato">
+      <EntityTypeMapping TypeName="lrenato1210Model.Contato">
+        <MappingFragment StoreEntitySet="Contato">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Telefone" ColumnName="Telefone" />
+          <ScalarProperty Name="Celular" ColumnName="Celular" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Endereco">
+      <EntityTypeMapping TypeName="lrenato1210Model.Endereco">
+        <MappingFragment StoreEntitySet="Endereco">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
+          <ScalarProperty Name="Numero" ColumnName="Numero" />
+          <ScalarProperty Name="Bairro" ColumnName="Bairro" />
+          <ScalarProperty Name="Complemento" ColumnName="Complemento" />
+          <ScalarProperty Name="Cep" ColumnName="Cep" />
+          <ScalarProperty Name="Municipio" ColumnName="Municipio" />
+          <ScalarProperty Name="Uf" ColumnName="Uf" />
+          <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Login">
+      <EntityTypeMapping TypeName="lrenato1210Model.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Usuario" ColumnName="Usuario" />
+          <ScalarProperty Name="Senha" ColumnName="Senha" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pessoa">
+      <EntityTypeMapping TypeName="lrenato1210Model.Pessoa">
+        <MappingFragment StoreEntitySet="Pessoa">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="DataInclusao" ColumnName="DataInclusao" />
+          <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
+          <ScalarProperty Name="Endereco" ColumnName="Endereco" />
+          <ScalarProperty Name="Contato" ColumnName="Contato" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="AnimaisAdotados" ColumnName="AnimaisAdotados" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vacinacao">
+      <EntityTypeMapping TypeName="lrenato1210Model.Vacinacao">
+        <MappingFragment StoreEntitySet="Vacinacao">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Nome" ColumnName="Nome" />
+          <ScalarProperty Name="Data" ColumnName="Data" />
+          <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

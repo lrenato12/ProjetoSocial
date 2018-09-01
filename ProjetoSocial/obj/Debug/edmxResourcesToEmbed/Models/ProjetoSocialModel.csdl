@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="lrenato1210Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Animal">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Especie" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Peso" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Cor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Idade" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="DataInclusao" Type="DateTime" Precision="3" />
+    <Property Name="DataAdocao" Type="DateTime" Precision="3" />
+    <Property Name="DescricaoLocalEncontrado" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="Int32" />
+    <Property Name="Informacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Vacinas" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Vacinacao" Relationship="Self.FK__Animal__Vacinas__34C8D9D1" FromRole="Animal" ToRole="Vacinacao" />
+    <NavigationProperty Name="Pessoa" Relationship="Self.FK__Pessoa__AnimaisA__3A81B327" FromRole="Animal" ToRole="Pessoa" />
+  </EntityType>
+  <EntityType Name="Contato">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Telefone" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Celular" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Informacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pessoa" Relationship="Self.FK__Pessoa__Contato__38996AB5" FromRole="Contato" ToRole="Pessoa" />
+  </EntityType>
+  <EntityType Name="Endereco">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Logradouro" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Numero" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Bairro" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Complemento" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Cep" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="Municipio" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Uf" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="Informacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pessoa" Relationship="Self.FK__Pessoa__Endereco__37A5467C" FromRole="Endereco" ToRole="Pessoa" />
+  </EntityType>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Usuario" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Senha" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Informacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pessoa" Relationship="Self.FK__Pessoa__Login__398D8EEE" FromRole="Login" ToRole="Pessoa" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="DataInclusao" Type="DateTime" Precision="3" />
+    <Property Name="Informacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Endereco" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Contato" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Login" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="AnimaisAdotados" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK__Pessoa__AnimaisA__3A81B327" FromRole="Pessoa" ToRole="Animal" />
+    <NavigationProperty Name="Contato1" Relationship="Self.FK__Pessoa__Contato__38996AB5" FromRole="Pessoa" ToRole="Contato" />
+    <NavigationProperty Name="Endereco1" Relationship="Self.FK__Pessoa__Endereco__37A5467C" FromRole="Pessoa" ToRole="Endereco" />
+    <NavigationProperty Name="Login1" Relationship="Self.FK__Pessoa__Login__398D8EEE" FromRole="Pessoa" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="Vacinacao">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Nome" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Data" Type="DateTime" Precision="3" />
+    <Property Name="Informacoes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Animal" Relationship="Self.FK__Animal__Vacinas__34C8D9D1" FromRole="Vacinacao" ToRole="Animal" />
+  </EntityType>
+  <Association Name="FK__Animal__Vacinas__34C8D9D1">
+    <End Role="Vacinacao" Type="Self.Vacinacao" Multiplicity="0..1" />
+    <End Role="Animal" Type="Self.Animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vacinacao">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Animal">
+        <PropertyRef Name="Vacinas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pessoa__AnimaisA__3A81B327">
+    <End Role="Animal" Type="Self.Animal" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animal">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="AnimaisAdotados" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pessoa__Contato__38996AB5">
+    <End Role="Contato" Type="Self.Contato" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Contato">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="Contato" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pessoa__Endereco__37A5467C">
+    <End Role="Endereco" Type="Self.Endereco" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Endereco">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="Endereco" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pessoa__Login__398D8EEE">
+    <End Role="Login" Type="Self.Login" Multiplicity="0..1" />
+    <End Role="Pessoa" Type="Self.Pessoa" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pessoa">
+        <PropertyRef Name="Login" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ProjetoSocialEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Animal" EntityType="Self.Animal" />
+    <EntitySet Name="Contato" EntityType="Self.Contato" />
+    <EntitySet Name="Endereco" EntityType="Self.Endereco" />
+    <EntitySet Name="Login" EntityType="Self.Login" />
+    <EntitySet Name="Pessoa" EntityType="Self.Pessoa" />
+    <EntitySet Name="Vacinacao" EntityType="Self.Vacinacao" />
+    <AssociationSet Name="FK__Animal__Vacinas__34C8D9D1" Association="Self.FK__Animal__Vacinas__34C8D9D1">
+      <End Role="Vacinacao" EntitySet="Vacinacao" />
+      <End Role="Animal" EntitySet="Animal" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pessoa__AnimaisA__3A81B327" Association="Self.FK__Pessoa__AnimaisA__3A81B327">
+      <End Role="Animal" EntitySet="Animal" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pessoa__Contato__38996AB5" Association="Self.FK__Pessoa__Contato__38996AB5">
+      <End Role="Contato" EntitySet="Contato" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pessoa__Endereco__37A5467C" Association="Self.FK__Pessoa__Endereco__37A5467C">
+      <End Role="Endereco" EntitySet="Endereco" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pessoa__Login__398D8EEE" Association="Self.FK__Pessoa__Login__398D8EEE">
+      <End Role="Login" EntitySet="Login" />
+      <End Role="Pessoa" EntitySet="Pessoa" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
