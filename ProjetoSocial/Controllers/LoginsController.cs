@@ -7,116 +7,114 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetoSocial.Models;
+using ProjetoSocial.Repository.Login;
 
 namespace ProjetoSocial.Controllers
 {
     [Authorize]
-    public class AnimaisController : Controller
+    public class LoginsController : Controller
     {
         private ProjetoSocialEntities db = new ProjetoSocialEntities();
+        private LoginRepository repository = null;
 
-        // GET: Animais
+        // GET: Logins
         public ActionResult Index()
         {
-            var animal = db.Animal/*.Include(a => a.Vacinacao)*/;
-            return View(animal.ToList());
+            repository = new LoginRepository(db);
+            return View(repository.GetLogins());
         }
 
-        // GET: Animais/Details/5
+        // GET: Logins/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Animal animal = db.Animal.Find(id);
-            if (animal == null)
+            Login login = db.Login.Find(id);
+            if (login == null)
             {
                 return HttpNotFound();
             }
-            return View(animal);
+            return View(login);
         }
 
-        // GET: Animais/Create
+        // GET: Logins/Create
         public ActionResult Create()
         {
-            ViewBag.Vacinas = new SelectList(db.Vacinacao, "Id", "Nome");
             return View();
         }
 
-        // POST: Animais/Create
+        // POST: Logins/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Especie,Nome,Peso,Cor,Idade,DataInclusao,DataAdocao,DescricaoLocalEncontrado,Status,Informacoes,Vacinas")] Animal animal)
+        public ActionResult Create([Bind(Include = "Id,Usuario,Senha,Status,Informacoes")] Login login)
         {
             if (ModelState.IsValid)
             {
-                db.Animal.Add(animal);
+                db.Login.Add(login);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Vacinas = new SelectList(db.Vacinacao, "Id", "Nome", animal.Vacinas);
-            return View(animal);
+            return View(login);
         }
 
-        // GET: Animais/Edit/5
+        // GET: Logins/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Animal animal = db.Animal.Find(id);
-            if (animal == null)
+            Login login = db.Login.Find(id);
+            if (login == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Vacinas = new SelectList(db.Vacinacao, "Id", "Nome", animal.Vacinas);
-            return View(animal);
+            return View(login);
         }
 
-        // POST: Animais/Edit/5
+        // POST: Logins/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Especie,Nome,Peso,Cor,Idade,DataInclusao,DataAdocao,DescricaoLocalEncontrado,Status,Informacoes,Vacinas")] Animal animal)
+        public ActionResult Edit([Bind(Include = "Id,Usuario,Senha,Status,Informacoes")] Login login)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(animal).State = EntityState.Modified;
+                db.Entry(login).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Vacinas = new SelectList(db.Vacinacao, "Id", "Nome", animal.Vacinas);
-            return View(animal);
+            return View(login);
         }
 
-        // GET: Animais/Delete/5
+        // GET: Logins/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Animal animal = db.Animal.Find(id);
-            if (animal == null)
+            Login login = db.Login.Find(id);
+            if (login == null)
             {
                 return HttpNotFound();
             }
-            return View(animal);
+            return View(login);
         }
 
-        // POST: Animais/Delete/5
+        // POST: Logins/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Animal animal = db.Animal.Find(id);
-            db.Animal.Remove(animal);
+            Login login = db.Login.Find(id);
+            db.Login.Remove(login);
             db.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -128,14 +126,6 @@ namespace ProjetoSocial.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
-        }
-
-        private bool IsLogged()
-        {
-            if (Session["Nome"] != null && Session["Status"] != null)
-                return true;
-
-            return false;
         }
     }
 }

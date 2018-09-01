@@ -159,6 +159,7 @@
     <Compile Include="Controllers\ContatosController.cs" />
     <Compile Include="Controllers\EnderecosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginsController.cs" />
     <Compile Include="Controllers\PainelAdministrativoController.cs" />
     <Compile Include="Controllers\PessoasController.cs" />
     <Compile Include="Controllers\VacinacoesController.cs" />
@@ -200,8 +201,18 @@
       <DependentUpon>ProjetoSocialModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Animal\AnimalRepository.cs" />
+    <Compile Include="Repository\Animal\IAnimal.cs" />
+    <Compile Include="Repository\Contato\ContatoRepository.cs" />
+    <Compile Include="Repository\Contato\IContato.cs" />
+    <Compile Include="Repository\Endereco\EnderecoRepository.cs" />
+    <Compile Include="Repository\Endereco\IEndereco.cs" />
     <Compile Include="Repository\Login\ILogin.cs" />
     <Compile Include="Repository\Login\LoginRepository.cs" />
+    <Compile Include="Repository\Pessoa\IPessoa.cs" />
+    <Compile Include="Repository\Pessoa\PessoaRepository.cs" />
+    <Compile Include="Repository\Vacinas\IVacinacao.cs" />
+    <Compile Include="Repository\Vacinas\VacinacaoRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\album.css" />
@@ -297,6 +308,11 @@
     <Content Include="Views\Vacinacoes\Details.cshtml" />
     <Content Include="Views\Vacinacoes\Edit.cshtml" />
     <Content Include="Views\Vacinacoes\Index.cshtml" />
+    <Content Include="Views\Logins\Create.cshtml" />
+    <Content Include="Views\Logins\Delete.cshtml" />
+    <Content Include="Views\Logins\Details.cshtml" />
+    <Content Include="Views\Logins\Edit.cshtml" />
+    <Content Include="Views\Logins\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
