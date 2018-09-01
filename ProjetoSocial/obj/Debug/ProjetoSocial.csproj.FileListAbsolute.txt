@@ -41,3 +41,13 @@ C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocia
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\Newtonsoft.Json.xml
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\obj\Debug\ProjetoSocial.dll
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\obj\Debug\ProjetoSocial.pdb
+C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\Swashbuckle.Core.dll
+C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.Net.Http.Formatting.dll
+C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.Web.Http.dll
+C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.Web.Http.WebHost.dll
+C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\WebActivatorEx.dll
+C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.IdentityModel.Tokens.Jwt.xml
+C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.Net.Http.Formatting.xml
+C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.Web.Http.xml
+C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.Web.Http.WebHost.xml

@@ -1,0 +1,75 @@
+﻿@model ProjetoSocial.Models.Pessoa
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutAdm.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pessoa</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataInclusao)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataInclusao)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Informacoes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Informacoes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Animal.Especie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Animal.Especie)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Contato1.Telefone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Contato1.Telefone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Endereco1.Logradouro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Endereco1.Logradouro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Login1.Usuario)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Login1.Usuario)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
