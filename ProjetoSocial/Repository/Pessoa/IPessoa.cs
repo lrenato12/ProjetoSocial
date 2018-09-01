@@ -10,9 +10,9 @@ namespace ProjetoSocial.Repository.Pessoa
     {
         void InsertPessoa(Models.Pessoa Pessoa);
         IEnumerable<Models.Pessoa> GetPessoas();
-        Models.Pessoa GetPessoaByID(int PessoaId);
+        Models.Pessoa GetPessoaByID(string PessoaId);
         void UpdatePessoa(Models.Pessoa Pessoa);
-        void DeletePessoa(int PessoaId);
+        void DeletePessoa(string PessoaId);
         void Save();
     }
 }

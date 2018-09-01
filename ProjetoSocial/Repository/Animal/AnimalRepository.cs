@@ -21,10 +21,11 @@ namespace ProjetoSocial.Repository.Animal
 
         public IEnumerable<Models.Animal> GetAnimals()
         {
+            //var animal = db.Animal/*.Include(a => a.Vacinacao)*/;
             return DBcontext.Animal.ToList();
         }
 
-        public Models.Animal GetAnimalByID(int AnimalId)
+        public Models.Animal GetAnimalByID(string AnimalId)
         {
             return DBcontext.Animal.Find(AnimalId);
         }
@@ -35,7 +36,7 @@ namespace ProjetoSocial.Repository.Animal
             Save();
         }
 
-        public void DeleteAnimal(int AnimalId)
+        public void DeleteAnimal(string AnimalId)
         {
             Models.Animal ani = DBcontext.Animal.Find(AnimalId);
             if (ani != null)

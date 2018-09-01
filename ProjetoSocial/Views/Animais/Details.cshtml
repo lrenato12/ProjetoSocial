@@ -5,103 +5,98 @@
     Layout = "~/Views/Shared/_LayoutAdm.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalhes do animal</h2>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Especie)
+            </dt>
 
-<div>
-    <h4>Animal</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Especie)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Especie)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Especie)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Peso)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Peso)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Peso)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Peso)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Cor)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Cor)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Cor)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Cor)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Idade)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Idade)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Idade)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Idade)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DataInclusao)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DataInclusao)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataInclusao)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataInclusao)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DataAdocao)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DataAdocao)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DataAdocao)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DataAdocao)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.DescricaoLocalEncontrado)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.DescricaoLocalEncontrado)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.DescricaoLocalEncontrado)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.DescricaoLocalEncontrado)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Status)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Status)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Informacoes)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Informacoes)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Informacoes)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Informacoes)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Vacinacao.Nome)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Vacinacao.Nome)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Vacinacao.Nome)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Vacinacao.Nome)
-        </dd>
-
-    </dl>
+        </dl>
+    </table>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

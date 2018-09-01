@@ -10,9 +10,9 @@ namespace ProjetoSocial.Repository.Animal
     {
         void InsertAnimal(Models.Animal Animal);
         IEnumerable<Models.Animal> GetAnimals();
-        Models.Animal GetAnimalByID(int AnimalId);
+        Models.Animal GetAnimalByID(string AnimalId);
         void UpdateAnimal(Models.Animal Animal);
-        void DeleteAnimal(int AnimalId);
+        void DeleteAnimal(string AnimalId);
         void Save();
     }
 }

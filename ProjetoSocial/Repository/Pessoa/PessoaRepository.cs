@@ -23,10 +23,10 @@ namespace ProjetoSocial.Repository.Pessoa
 
         public IEnumerable<Models.Pessoa> GetPessoas()
         {
-            return DBcontext.Pessoa.ToList();
+            return DBcontext.Pessoa.Include(p => p.Animal).Include(p => p.Contato1).Include(p => p.Endereco1).Include(p => p.Login1).ToList();
         }
 
-        public Models.Pessoa GetPessoaByID(int PessoaId)
+        public Models.Pessoa GetPessoaByID(string PessoaId)
         {
             return DBcontext.Pessoa.Find(PessoaId);
         }
@@ -37,7 +37,7 @@ namespace ProjetoSocial.Repository.Pessoa
             Save();
         }
 
-        public void DeletePessoa(int PessoaId)
+        public void DeletePessoa(string PessoaId)
         {
             Models.Pessoa pes = DBcontext.Pessoa.Find(PessoaId);
             if (pes != null)
