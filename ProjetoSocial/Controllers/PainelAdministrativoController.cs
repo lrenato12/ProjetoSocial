@@ -4,16 +4,21 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
+using ProjetoSocial.Models;
+using ProjetoSocial.Repository.Animal;
 
 namespace ProjetoSocial.Controllers
 {
     [Authorize]
     public class PainelAdministrativoController : Controller
     {
-        // GET: PainelAdministrativo
+        private ProjetoSocialEntities db = new ProjetoSocialEntities();
+        private AnimalRepository repository;
+
         public ActionResult Index()
         {
-            return View();
+            repository = new AnimalRepository(db);
+            return View(repository.GetAnimals());
         }
 
         public ActionResult Signout()

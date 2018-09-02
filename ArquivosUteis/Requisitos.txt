@@ -1,0 +1,20 @@
+Requisitos Funcionais
+
+RF001: O Sistema deverá possuir a opção do usuário fazer o seu próprio cadastro no site.
+
+RF002: O Sistema deve permitir o acesso a área restita, com Usuario e Senha, previamente cadastrados.
+
+RF003: O sistema deverá cadastrar Animais (Apenas administradores).
+
+RF004: O sistema deverá exibir a lista detalhada de Animais para adoção (Área restrita).
+
+RF005: O sistema deverá permitir a consulta dos dados dos Animais no sistema.
+
+RF006: O sistema deverá possuir a opção de Adotar Animal.
+
+
+Requisitos não funcionais
+
+RNF007: No desenvolvimento, será utilizado Asp.Net MVC, com bootstrap e jQuery.
+
+RNF008: O banco de dados utilizado deverá ser feito em Sql Server, com acesso de ORM (Entity Framework).

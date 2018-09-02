@@ -11,20 +11,20 @@ using ProjetoSocial.Repository.Login;
 
 namespace ProjetoSocial.Controllers
 {
-    [Authorize]
+    
     public class LoginsController : Controller
     {
         private ProjetoSocialEntities db = new ProjetoSocialEntities();
         private LoginRepository repository = null;
 
-        // GET: Logins
+        [Authorize]
         public ActionResult Index()
         {
             repository = new LoginRepository(db);
             return View(repository.GetLogins());
         }
 
-        // GET: Logins/Details/5
+        [Authorize]
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -39,21 +39,19 @@ namespace ProjetoSocial.Controllers
             return View(login);
         }
 
-        // GET: Logins/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Logins/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Usuario,Senha,Status,Informacoes")] Login login)
         {
             if (ModelState.IsValid)
             {
+                Guid guid = Guid.NewGuid();
+                login.Id = guid.ToString();
                 db.Login.Add(login);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -62,7 +60,7 @@ namespace ProjetoSocial.Controllers
             return View(login);
         }
 
-        // GET: Logins/Edit/5
+        [Authorize]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -77,9 +75,7 @@ namespace ProjetoSocial.Controllers
             return View(login);
         }
 
-        // POST: Logins/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Usuario,Senha,Status,Informacoes")] Login login)
@@ -93,7 +89,7 @@ namespace ProjetoSocial.Controllers
             return View(login);
         }
 
-        // GET: Logins/Delete/5
+        [Authorize]
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -108,7 +104,7 @@ namespace ProjetoSocial.Controllers
             return View(login);
         }
 
-        // POST: Logins/Delete/5
+        [Authorize]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)

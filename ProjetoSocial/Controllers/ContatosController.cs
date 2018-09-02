@@ -10,7 +10,7 @@ using ProjetoSocial.Models;
 
 namespace ProjetoSocial.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "1")]
     public class ContatosController : Controller
     {
         private ProjetoSocialEntities db = new ProjetoSocialEntities();
