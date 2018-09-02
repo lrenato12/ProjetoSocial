@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="lrenato1210ModelStoreContainer" CdmEntityContainer="ProjetoSocialEntities">
+  <EntityContainerMapping StorageEntityContainer="ProjetoSocialModelStoreContainer" CdmEntityContainer="ProjetoSocialEntities">
     <EntitySetMapping Name="Animal">
-      <EntityTypeMapping TypeName="lrenato1210Model.Animal">
+      <EntityTypeMapping TypeName="ProjetoSocialModel.Animal">
         <MappingFragment StoreEntitySet="Animal">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Especie" ColumnName="Especie" />
@@ -20,7 +20,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Contato">
-      <EntityTypeMapping TypeName="lrenato1210Model.Contato">
+      <EntityTypeMapping TypeName="ProjetoSocialModel.Contato">
         <MappingFragment StoreEntitySet="Contato">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Telefone" ColumnName="Telefone" />
@@ -31,7 +31,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Endereco">
-      <EntityTypeMapping TypeName="lrenato1210Model.Endereco">
+      <EntityTypeMapping TypeName="ProjetoSocialModel.Endereco">
         <MappingFragment StoreEntitySet="Endereco">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Logradouro" ColumnName="Logradouro" />
@@ -46,18 +46,19 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Login">
-      <EntityTypeMapping TypeName="lrenato1210Model.Login">
+      <EntityTypeMapping TypeName="ProjetoSocialModel.Login">
         <MappingFragment StoreEntitySet="Login">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Usuario" ColumnName="Usuario" />
           <ScalarProperty Name="Senha" ColumnName="Senha" />
           <ScalarProperty Name="Status" ColumnName="Status" />
           <ScalarProperty Name="Informacoes" ColumnName="Informacoes" />
+          <ScalarProperty Name="Perfil" ColumnName="Perfil" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Pessoa">
-      <EntityTypeMapping TypeName="lrenato1210Model.Pessoa">
+      <EntityTypeMapping TypeName="ProjetoSocialModel.Pessoa">
         <MappingFragment StoreEntitySet="Pessoa">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />
@@ -71,7 +72,7 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="Vacinacao">
-      <EntityTypeMapping TypeName="lrenato1210Model.Vacinacao">
+      <EntityTypeMapping TypeName="ProjetoSocialModel.Vacinacao">
         <MappingFragment StoreEntitySet="Vacinacao">
           <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Nome" ColumnName="Nome" />

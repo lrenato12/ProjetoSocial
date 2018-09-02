@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="lrenato1210Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="ProjetoSocialModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="Animal">
     <Key>
       <PropertyRef Name="Id" />
@@ -50,6 +50,7 @@
     <Property Name="Senha" Type="varchar" MaxLength="50" />
     <Property Name="Status" Type="varchar" MaxLength="50" />
     <Property Name="Informacoes" Type="varchar(max)" />
+    <Property Name="Perfil" Type="varchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Pessoa">
     <Key>
@@ -133,7 +134,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="lrenato1210ModelStoreContainer">
+  <EntityContainer Name="ProjetoSocialModelStoreContainer">
     <EntitySet Name="Animal" EntityType="Self.Animal" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Contato" EntityType="Self.Contato" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Endereco" EntityType="Self.Endereco" Schema="dbo" store:Type="Tables" />

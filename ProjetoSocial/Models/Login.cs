@@ -25,6 +25,7 @@ namespace ProjetoSocial.Models
         public string Senha { get; set; }
         public string Status { get; set; }
         public string Informacoes { get; set; }
+        public string Perfil { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Pessoa> Pessoa { get; set; }

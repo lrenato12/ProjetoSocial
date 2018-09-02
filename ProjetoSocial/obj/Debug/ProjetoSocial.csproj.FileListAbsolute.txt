@@ -51,4 +51,3 @@ C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocia
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.Net.Http.Formatting.xml
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.Web.Http.xml
 C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\bin\System.Web.Http.WebHost.xml
-C:\Users\luiz.renato\Documents\LR\PROJETOS\BitBucket\SistemaFazenda\ProjetoSocial\ProjetoSocial\obj\Debug\ProjetoSocial.csprojResolveAssemblyReference.cache

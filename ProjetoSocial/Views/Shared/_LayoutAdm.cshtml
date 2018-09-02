@@ -45,30 +45,42 @@
                                 Animais
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Pessoas")">
-                                <span data-feather="shopping-cart"></span>
-                                Pessoas
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Contatos")">
-                                <span data-feather="users"></span>
-                                Contatos
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Enderecos")">
-                                <span data-feather="bar-chart-2"></span>
-                                Endereços
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="@Url.Action("Index", "Vacinacoes")">
-                                <span data-feather="layers"></span>
-                                Vacinações
-                            </a>
-                        </li>
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index", "Pessoas")">
+                                    <span data-feather="shopping-cart"></span>
+                                    Pessoas
+                                </a>
+                            </li>
+                        }
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index", "Contatos")">
+                                    <span data-feather="users"></span>
+                                    Contatos
+                                </a>
+                            </li>
+                        }
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index", "Enderecos")">
+                                    <span data-feather="bar-chart-2"></span>
+                                    Endereços
+                                </a>
+                            </li>
+                        }
+                        @if (this.User.IsInRole("Administrator"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link" href="@Url.Action("Index", "Vacinacoes")">
+                                    <span data-feather="layers"></span>
+                                    Vacinações
+                                </a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </nav>
