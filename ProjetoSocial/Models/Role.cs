@@ -16,7 +16,7 @@ namespace ProjetoSocial.Models
         public override string[] GetRolesForUser(string username)
         {
             ProjetoSocialEntities db = new ProjetoSocialEntities();
-            string sRoles = db.Login.Where(p => p.Usuario == username).FirstOrDefault().Usuario;
+            string sRoles = db.Login.FirstOrDefault(p => p.Usuario == username)?.Perfil;
             string[] retorno = { sRoles };
             return retorno;
         }

@@ -23,10 +23,15 @@ namespace ProjetoSocial.Controllers
 
         public ActionResult Signout()
         {
+            EncerraSessao();
+            return RedirectToAction("Index", "Home");
+        }
+
+        private void EncerraSessao()
+        {
             FormsAuthentication.SignOut();
             Roles.DeleteCookie();
             Session.Clear();
-            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -13,7 +13,7 @@ namespace ProjetoSocial.Controllers
 
         public ActionResult Index()
         {
-            repository = new AnimalRepository(db);
+            NewRepository();
             return View(repository.GetAnimals());
         }
         
@@ -22,27 +22,29 @@ namespace ProjetoSocial.Controllers
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            repository = new AnimalRepository(db);
+            NewRepository();
             Animal animal = repository.GetAnimalByID(id);
             if (animal == null)
                 return HttpNotFound();
 
             return View(animal);
         }
-        
+
+        [Authorize(Roles = "Administrador")]
         public ActionResult Create()
         {
             ViewBag.Vacinas = new SelectList(db.Vacinacao, "Id", "Nome");
             return View();
         }
-        
+
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Especie,Nome,Peso,Cor,Idade,DataInclusao,DataAdocao,DescricaoLocalEncontrado,Status,Informacoes,Vacinas")] Animal animal)
         {
             if (ModelState.IsValid)
             {
-                repository = new AnimalRepository(db);
+                NewRepository();
                 repository.InsertAnimal(animal);
                 return RedirectToAction("Index");
             }
@@ -50,13 +52,14 @@ namespace ProjetoSocial.Controllers
             ViewBag.Vacinas = new SelectList(db.Vacinacao, "Id", "Nome", animal.Vacinas);
             return View(animal);
         }
-        
+
+        [Authorize(Roles = "Administrador")]
         public ActionResult Edit(string id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            repository = new AnimalRepository(db);
+            NewRepository();
             Animal animal = repository.GetAnimalByID(id);
             if (animal == null)
                 return HttpNotFound();
@@ -65,13 +68,14 @@ namespace ProjetoSocial.Controllers
             return View(animal);
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Especie,Nome,Peso,Cor,Idade,DataInclusao,DataAdocao,DescricaoLocalEncontrado,Status,Informacoes,Vacinas")] Animal animal)
         {
             if (ModelState.IsValid)
             {
-                repository = new AnimalRepository(db);
+                NewRepository();
                 repository.UpdateAnimal(animal);
                 return RedirectToAction("Index");
             }
@@ -80,12 +84,13 @@ namespace ProjetoSocial.Controllers
             return View(animal);
         }
 
+        [Authorize(Roles = "Administrador")]
         public ActionResult Delete(string id)
         {
             if (id == null)
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
 
-            repository = new AnimalRepository(db);
+            NewRepository();
             Animal animal = repository.GetAnimalByID(id);
             if (animal == null)
                 return HttpNotFound();
@@ -93,11 +98,12 @@ namespace ProjetoSocial.Controllers
             return View(animal);
         }
 
+        [Authorize(Roles = "Administrador")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            repository = new AnimalRepository(db);
+            NewRepository();
             Animal animal = repository.GetAnimalByID(id);
 
             repository.DeleteAnimal(animal.Id);
@@ -109,6 +115,11 @@ namespace ProjetoSocial.Controllers
             if (disposing)
                 db.Dispose();
             base.Dispose(disposing);
+        }
+
+        private void NewRepository()
+        {
+            repository = new AnimalRepository(db);
         }
     }
 }

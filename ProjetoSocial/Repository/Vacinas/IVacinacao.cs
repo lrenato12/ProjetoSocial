@@ -10,9 +10,9 @@ namespace ProjetoSocial.Repository.Vacinacaos
     {
         void InsertVacinacao(Models.Vacinacao Vacinacao);
         IEnumerable<Models.Vacinacao> GetVacinacaos();
-        Models.Vacinacao GetVacinacaoByID(int VacinacaoId);
+        Models.Vacinacao GetVacinacaoByID(string VacinacaoId);
         void UpdateVacinacao(Models.Vacinacao Vacinacao);
-        void DeleteVacinacao(int VacinacaoId);
+        void DeleteVacinacao(string VacinacaoId);
         void Save();
     }
 }

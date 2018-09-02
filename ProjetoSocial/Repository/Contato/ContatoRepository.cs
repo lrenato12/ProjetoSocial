@@ -26,7 +26,7 @@ namespace ProjetoSocial.Repository.Contato
             return DBcontext.Contato.ToList();
         }
 
-        public Models.Contato GetContatoByID(int ContatoId)
+        public Models.Contato GetContatoByID(string ContatoId)
         {
             return DBcontext.Contato.Find(ContatoId);
         }
@@ -37,7 +37,7 @@ namespace ProjetoSocial.Repository.Contato
             Save();
         }
 
-        public void DeleteContato(int ContatoId)
+        public void DeleteContato(string ContatoId)
         {
             Models.Contato con = DBcontext.Contato.Find(ContatoId);
             if (con != null)

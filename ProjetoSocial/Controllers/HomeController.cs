@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 using System.Web.Security;
 using ProjetoSocial.Models;
 using ProjetoSocial.Repository.Login;
@@ -19,21 +15,18 @@ namespace ProjetoSocial.Controllers
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
-
             return View();
         }
 
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
         public ActionResult Login()
         {
             ViewBag.Message = "Your contact page.";
-
             return View();
         }
 
@@ -55,7 +48,6 @@ namespace ProjetoSocial.Controllers
             {
                 ModelState.Clear();
                 ViewData["MensagemLogin"] = "Usuário / Senha inválidos";
-                //ModelState.AddModelError("", "Usuário/Senha inválidos.");
                 return View(new Login());
             }
         }

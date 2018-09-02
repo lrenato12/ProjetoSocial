@@ -25,7 +25,7 @@ namespace ProjetoSocial.Repository.Login
             return DBcontext.Login.ToList();
         }
 
-        public Models.Login GetLoginByID(int LoginId)
+        public Models.Login GetLoginByID(string LoginId)
         {
             return DBcontext.Login.Find(LoginId);
         }
@@ -57,7 +57,7 @@ namespace ProjetoSocial.Repository.Login
             Save();
         }
 
-        public void DeleteLogin(int LoginId)
+        public void DeleteLogin(string LoginId)
         {
             Models.Login log = DBcontext.Login.Find(LoginId);
             if (log != null)

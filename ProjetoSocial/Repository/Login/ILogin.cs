@@ -11,10 +11,10 @@ namespace ProjetoSocial.Repository
     {
         void InsertLogin(Models.Login Login);
         IEnumerable<Models.Login> GetLogins();
-        Models.Login GetLoginByID(int LoginId);
+        Models.Login GetLoginByID(string LoginId);
         Models.Login GetLoginByUserPass(string user, string password);
         void UpdateLogin(Models.Login Login);
-        void DeleteLogin(int LoginId);
+        void DeleteLogin(string LoginId);
         void Save();
     }
 }

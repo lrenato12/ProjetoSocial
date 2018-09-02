@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data;
 using System.Data.Entity;
-using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using ProjetoSocial.Models;
 using ProjetoSocial.Repository.Login;
@@ -28,14 +24,13 @@ namespace ProjetoSocial.Controllers
         public ActionResult Details(string id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Login login = db.Login.Find(id);
+
+            NewRepository();
+            Login login = repository.GetLoginByID(id);
             if (login == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(login);
         }
 
@@ -50,10 +45,10 @@ namespace ProjetoSocial.Controllers
         {
             if (ModelState.IsValid)
             {
+                NewRepository();
                 Guid guid = Guid.NewGuid();
                 login.Id = guid.ToString();
-                db.Login.Add(login);
-                db.SaveChanges();
+                repository.InsertLogin(login);
                 return RedirectToAction("Index");
             }
 
@@ -64,14 +59,12 @@ namespace ProjetoSocial.Controllers
         public ActionResult Edit(string id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Login login = db.Login.Find(id);
+
+            NewRepository();
+            Login login = repository.GetLoginByID(id);
             if (login == null)
-            {
                 return HttpNotFound();
-            }
             return View(login);
         }
 
@@ -82,8 +75,8 @@ namespace ProjetoSocial.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Entry(login).State = EntityState.Modified;
-                db.SaveChanges();
+                NewRepository();
+                repository.UpdateLogin(login);
                 return RedirectToAction("Index");
             }
             return View(login);
@@ -93,14 +86,13 @@ namespace ProjetoSocial.Controllers
         public ActionResult Delete(string id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Login login = db.Login.Find(id);
+
+            NewRepository();
+            Login login = repository.GetLoginByID(id);
             if (login == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(login);
         }
 
@@ -109,19 +101,22 @@ namespace ProjetoSocial.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Login login = db.Login.Find(id);
-            db.Login.Remove(login);
-            db.SaveChanges();
+            NewRepository();
+            Login login = repository.GetLoginByID(id);
+            repository.DeleteLogin(login.Id);
             return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)
         {
             if (disposing)
-            {
                 db.Dispose();
-            }
             base.Dispose(disposing);
+        }
+
+        private void NewRepository()
+        {
+            repository = new LoginRepository(db);
         }
     }
 }

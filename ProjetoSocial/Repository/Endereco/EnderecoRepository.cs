@@ -26,7 +26,7 @@ namespace ProjetoSocial.Repository.Endereco
             return DBcontext.Endereco.ToList();
         }
 
-        public Models.Endereco GetEnderecoByID(int EnderecoId)
+        public Models.Endereco GetEnderecoByID(string EnderecoId)
         {
             return DBcontext.Endereco.Find(EnderecoId);
         }
@@ -37,7 +37,7 @@ namespace ProjetoSocial.Repository.Endereco
             Save();
         }
 
-        public void DeleteEndereco(int EnderecoId)
+        public void DeleteEndereco(string EnderecoId)
         {
             Models.Endereco end = DBcontext.Endereco.Find(EnderecoId);
             if (end != null)

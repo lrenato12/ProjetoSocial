@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using ProjetoSocial.Models;
+using ProjetoSocial.Repository.Vacinas;
 
 namespace ProjetoSocial.Controllers
 {
@@ -14,105 +15,90 @@ namespace ProjetoSocial.Controllers
     public class VacinacoesController : Controller
     {
         private ProjetoSocialEntities db = new ProjetoSocialEntities();
-
-        // GET: Vacinacoes
+        private VacinacaoRepository repository;
+        
         public ActionResult Index()
         {
-            return View(db.Vacinacao.ToList());
+            NewRepository();
+            return View(repository.GetVacinacaos());
         }
-
-        // GET: Vacinacoes/Details/5
+        
         public ActionResult Details(string id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Vacinacao vacinacao = db.Vacinacao.Find(id);
+
+            NewRepository();
+            Vacinacao vacinacao = repository.GetVacinacaoByID(id);
             if (vacinacao == null)
-            {
                 return HttpNotFound();
-            }
             return View(vacinacao);
         }
-
-        // GET: Vacinacoes/Create
+        
         public ActionResult Create()
         {
             return View();
         }
-
-        // POST: Vacinacoes/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Id,Nome,Data,Informacoes")] Vacinacao vacinacao)
         {
             if (ModelState.IsValid)
             {
-                db.Vacinacao.Add(vacinacao);
-                db.SaveChanges();
+                NewRepository();
+                repository.InsertVacinacao(vacinacao);
                 return RedirectToAction("Index");
             }
 
             return View(vacinacao);
         }
-
-        // GET: Vacinacoes/Edit/5
+        
         public ActionResult Edit(string id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Vacinacao vacinacao = db.Vacinacao.Find(id);
+
+            Vacinacao vacinacao = repository.GetVacinacaoByID(id);
             if (vacinacao == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(vacinacao);
         }
-
-        // POST: Vacinacoes/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Nome,Data,Informacoes")] Vacinacao vacinacao)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(vacinacao).State = EntityState.Modified;
-                db.SaveChanges();
+                NewRepository();
+                repository.UpdateVacinacao(vacinacao);
                 return RedirectToAction("Index");
             }
             return View(vacinacao);
         }
-
-        // GET: Vacinacoes/Delete/5
+        
         public ActionResult Delete(string id)
         {
             if (id == null)
-            {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Vacinacao vacinacao = db.Vacinacao.Find(id);
+
+            NewRepository();
+            Vacinacao vacinacao = repository.GetVacinacaoByID(id);
             if (vacinacao == null)
-            {
                 return HttpNotFound();
-            }
+
             return View(vacinacao);
         }
-
-        // POST: Vacinacoes/Delete/5
+        
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)
         {
-            Vacinacao vacinacao = db.Vacinacao.Find(id);
-            db.Vacinacao.Remove(vacinacao);
-            db.SaveChanges();
+            NewRepository();
+            Vacinacao vacinacao = repository.GetVacinacaoByID(id);
+            repository.DeleteVacinacao(vacinacao.Id);
             return RedirectToAction("Index");
         }
 
@@ -123,6 +109,11 @@ namespace ProjetoSocial.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        private void NewRepository()
+        {
+            repository = new VacinacaoRepository(db);
         }
     }
 }

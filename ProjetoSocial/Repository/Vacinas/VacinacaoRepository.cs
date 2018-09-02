@@ -27,7 +27,7 @@ namespace ProjetoSocial.Repository.Vacinas
             return DBcontext.Vacinacao.ToList();
         }
 
-        public Vacinacao GetVacinacaoByID(int VacinacaoId)
+        public Vacinacao GetVacinacaoByID(string VacinacaoId)
         {
             return DBcontext.Vacinacao.Find(VacinacaoId);
         }
@@ -38,7 +38,7 @@ namespace ProjetoSocial.Repository.Vacinas
             Save();
         }
 
-        public void DeleteVacinacao(int VacinacaoId)
+        public void DeleteVacinacao(string VacinacaoId)
         {
             Models.Vacinacao vac = DBcontext.Vacinacao.Find(VacinacaoId);
             if (vac != null)

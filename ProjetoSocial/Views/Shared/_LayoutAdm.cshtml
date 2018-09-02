@@ -45,7 +45,7 @@
                                 Animais
                             </a>
                         </li>
-                        @if (this.User.IsInRole("Administrator"))
+                        @if (this.User.IsInRole("Administrador"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link" href="@Url.Action("Index", "Pessoas")">
@@ -54,7 +54,7 @@
                                 </a>
                             </li>
                         }
-                        @if (this.User.IsInRole("Administrator"))
+                        @if (this.User.IsInRole("Administrador"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link" href="@Url.Action("Index", "Contatos")">
@@ -63,7 +63,7 @@
                                 </a>
                             </li>
                         }
-                        @if (this.User.IsInRole("Administrator"))
+                        @if (this.User.IsInRole("Administrador"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link" href="@Url.Action("Index", "Enderecos")">
@@ -72,7 +72,7 @@
                                 </a>
                             </li>
                         }
-                        @if (this.User.IsInRole("Administrator"))
+                        @if (this.User.IsInRole("Administrador"))
                         {
                             <li class="nav-item">
                                 <a class="nav-link" href="@Url.Action("Index", "Vacinacoes")">

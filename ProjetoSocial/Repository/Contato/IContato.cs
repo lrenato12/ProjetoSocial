@@ -10,9 +10,9 @@ namespace ProjetoSocial.Repository.Contato
     {
         void InsertContato(Models.Contato Contato);
         IEnumerable<Models.Contato> GetContatos();
-        Models.Contato GetContatoByID(int ContatoId);
+        Models.Contato GetContatoByID(string ContatoId);
         void UpdateContato(Models.Contato Contato);
-        void DeleteContato(int ContatoId);
+        void DeleteContato(string ContatoId);
         void Save();
     }
 }
