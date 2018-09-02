@@ -17,6 +17,8 @@ namespace ProjetoSocial.Repository.Endereco
 
         public void InsertEndereco(Models.Endereco Endereco)
         {
+            if (string.IsNullOrEmpty(Endereco.Id))
+            { var guid = Guid.NewGuid(); Endereco.Id = guid.ToString(); }
             DBcontext.Endereco.Add(Endereco);
             Save();
         }

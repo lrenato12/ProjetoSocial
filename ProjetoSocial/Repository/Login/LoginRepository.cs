@@ -16,6 +16,8 @@ namespace ProjetoSocial.Repository.Login
 
         public void InsertLogin(Models.Login Login)
         {
+            if (string.IsNullOrEmpty(Login.Id))
+            { var guid = Guid.NewGuid(); Login.Id = guid.ToString(); }
             DBcontext.Login.Add(Login);
             Save();
         }

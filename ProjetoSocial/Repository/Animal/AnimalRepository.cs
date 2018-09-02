@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using ProjetoSocial.Models;
@@ -15,6 +16,8 @@ namespace ProjetoSocial.Repository.Animal
 
         public void InsertAnimal(Models.Animal Animal)
         {
+            if (string.IsNullOrEmpty(Animal.Id))
+            { var guid = Guid.NewGuid(); Animal.Id = guid.ToString(); }
             DBcontext.Animal.Add(Animal);
             Save();
         }

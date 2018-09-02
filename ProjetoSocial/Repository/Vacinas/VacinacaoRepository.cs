@@ -18,6 +18,8 @@ namespace ProjetoSocial.Repository.Vacinas
 
         public void InsertVacinacao(Vacinacao Vacinacao)
         {
+            if (string.IsNullOrEmpty(Vacinacao.Id))
+            { var guid = Guid.NewGuid(); Vacinacao.Id = guid.ToString(); }
             DBcontext.Vacinacao.Add(Vacinacao);
             Save();
         }

@@ -1,6 +1,4 @@
-﻿using System;
-using System.Data.Entity;
-using System.Net;
+﻿using System.Net;
 using System.Web.Mvc;
 using ProjetoSocial.Models;
 using ProjetoSocial.Repository.Login;
@@ -46,8 +44,6 @@ namespace ProjetoSocial.Controllers
             if (ModelState.IsValid)
             {
                 NewRepository();
-                Guid guid = Guid.NewGuid();
-                login.Id = guid.ToString();
                 repository.InsertLogin(login);
                 return RedirectToAction("Index");
             }

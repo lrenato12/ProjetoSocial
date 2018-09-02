@@ -17,6 +17,8 @@ namespace ProjetoSocial.Repository.Contato
 
         public void InsertContato(Models.Contato Contato)
         {
+            if (string.IsNullOrEmpty(Contato.Id))
+            { var guid = Guid.NewGuid(); Contato.Id = guid.ToString(); }
             DBcontext.Contato.Add(Contato);
             Save();
         }

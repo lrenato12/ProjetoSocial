@@ -17,6 +17,8 @@ namespace ProjetoSocial.Repository.Pessoa
 
         public void InsertPessoa(Models.Pessoa Pessoa)
         {
+            if (string.IsNullOrEmpty(Pessoa.Id))
+            { var guid = Guid.NewGuid(); Pessoa.Id = guid.ToString(); }
             DBcontext.Pessoa.Add(Pessoa);
             Save();
         }
